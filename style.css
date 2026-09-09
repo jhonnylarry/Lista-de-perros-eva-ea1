@@ -57,6 +57,13 @@ button:hover {
     background-color: #79000023;
 }
 
+#contadoresContainer {
+  display: flex;
+  gap: 2rem;
+  font-size: large;
+  margin-bottom: 10px;
+}
+
 .perrosContainer {
   position: relative;
   display: flex;
