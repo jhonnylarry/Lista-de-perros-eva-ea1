@@ -64,6 +64,11 @@ button:hover {
   margin-bottom: 10px;
 }
 
+#reiniciar {
+  font-size: medium;
+  margin-top: 10px;
+}
+
 .perrosContainer {
   position: relative;
   display: flex;
