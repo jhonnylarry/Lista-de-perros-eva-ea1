@@ -62,6 +62,18 @@ button:hover {
   margin-top: 180px;
 }
 
+#contadoresContainer {
+  display: flex;
+  gap: 2rem;
+  font-size: large;
+  margin-bottom: 10px;
+}
+
+#reiniciar {
+  font-size: medium;
+  margin-top: 10px;
+}
+
 .perrosContainer {
   position: relative;
   display: flex;
