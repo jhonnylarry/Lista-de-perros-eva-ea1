@@ -124,8 +124,13 @@ Para la ejecución de este proyecto, integré Claude Code (Anthropic) a mi flujo
 
 ## 🪞 Reflexión personal
 
-> ✏️ **A completar por el autor, sin apoyo de IA (requisito obligatorio de la pauta).**
-> Explica tu aprendizaje y tu contribución al proyecto.
+El desarrollo de esta evaluación ha marcado un punto de inflexión en mi formación como desarrollador. En esta etapa de la carrera, el desafío ya no es solo lograr que el código funcione, sino aprender a gestionarlo e integrarlo como en un entorno profesional real.
+
+Aplicar GitFlow de forma individual parecía un exceso al principio, pero resultó ser un gran ejercicio de disciplina técnica. Me obligó a planificar antes de programar y a entender el inmenso valor de aislar desarrollos (features) y emergencias (hotfixes). De hecho, resolver los conflictos manuales al hacer el back-merge desde main hacia develop fue la prueba empírica de por qué mantener este orden es vital para no perder trabajo.
+
+Por otro lado, configurar las validaciones automáticas con GitHub Actions me permitió materializar el concepto de Integración Continua (CI). Ver cómo un pipeline asume las revisiones de sintaxis (HTML/JS) demuestra cómo la automatización nos libera para enfocarnos en la lógica del negocio.
+
+Finalmente, aunque me apoyé en asistentes de código para agilizar la escritura, este proyecto me dejó una lección clara: las herramientas asisten, pero el criterio técnico no se delega. La estrategia de ramas, las convenciones estrictas y la resolución de conflictos dependieron enteramente de mi capacidad de análisis.
 
 ---
 
