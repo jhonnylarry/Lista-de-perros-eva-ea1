@@ -57,6 +57,11 @@ button:hover {
     background-color: #79000023;
 }
 
+#errorMensaje {
+  text-align: center;
+  margin-top: 180px;
+}
+
 .perrosContainer {
   position: relative;
   display: flex;
