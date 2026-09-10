@@ -1,0 +1,7 @@
+{
+  "src-not-empty": false,
+  "tag-pair": true,
+  "attr-lowercase": true,
+  "doctype-first": true,
+  "id-unique": true
+}

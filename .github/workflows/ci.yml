@@ -1,0 +1,20 @@
+name: CI Básico
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código (checkout)
+        uses: actions/checkout@v4
+
+      - name: Validar HTML (index.html)
+        run: npx --yes htmlhint index.html
+
+      - name: Validar sintaxis de JavaScript (index.js)
+        run: node --check index.js
