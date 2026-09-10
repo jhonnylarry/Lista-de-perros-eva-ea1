@@ -57,6 +57,11 @@ button:hover {
     background-color: #79000023;
 }
 
+#errorMensaje {
+  text-align: center;
+  margin-top: 180px;
+}
+
 #contadoresContainer {
   display: flex;
   gap: 2rem;

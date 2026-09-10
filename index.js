@@ -1,5 +1,6 @@
 const perroActualElement = document.getElementById("perroActual");
 const spinner = document.getElementById("spinner");
+const errorMensaje = document.getElementById("errorMensaje");
 const perrosLikeContainer = document.getElementById("perrosLikeContainer");
 const perrosDislikeContainer = document.getElementById(
   "perrosDislikeContainer"
@@ -21,6 +22,7 @@ document.getElementById("dislike").addEventListener("click", () => {
   rankearPerro("-");
 });
 document.getElementById("saltear").addEventListener("click", nuevoPerro);
+document.getElementById("reintentar").addEventListener("click", nuevoPerro);
 document.getElementById("reiniciar").addEventListener("click", reiniciarHistorial);
 perroActualElement.addEventListener("load", () => {
   spinner.classList.toggle("escondido", true);
@@ -46,14 +48,19 @@ function rankearPerro(ranking) {
 
 async function nuevoPerro() {
   perroActualElement.classList.toggle("escondido", true);
+  errorMensaje.classList.toggle("escondido", true);
   spinner.classList.toggle("escondido", false);
-  const res = await fetch("https://dog.ceo/api/breeds/image/random");
-  const jsonRes = await res.json();
-  if (jsonRes.status === "success") {
+  try {
+    const res = await fetch("https://dog.ceo/api/breeds/image/random");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const jsonRes = await res.json();
+    if (jsonRes.status !== "success") throw new Error("Respuesta inválida de la API");
     perroActual = jsonRes.message;
     perroActualElement.src = perroActual;
-  } else {
-    nuevoPerro();
+  } catch (error) {
+    console.error("No se pudo obtener un perrito:", error);
+    spinner.classList.toggle("escondido", true);
+    errorMensaje.classList.toggle("escondido", false);
   }
 }
 
