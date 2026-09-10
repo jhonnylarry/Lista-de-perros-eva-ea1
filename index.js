@@ -21,6 +21,7 @@ document.getElementById("dislike").addEventListener("click", () => {
   rankearPerro("-");
 });
 document.getElementById("saltear").addEventListener("click", nuevoPerro);
+document.getElementById("reiniciar").addEventListener("click", reiniciarHistorial);
 perroActualElement.addEventListener("load", () => {
   spinner.classList.toggle("escondido", true);
   perroActualElement.classList.toggle("escondido", false);
@@ -54,6 +55,17 @@ async function nuevoPerro() {
   } else {
     nuevoPerro();
   }
+}
+
+function reiniciarHistorial() {
+  perrosLikeContainer.innerHTML = "";
+  perrosDislikeContainer.innerHTML = "";
+  perrosLikeContainer.classList.toggle("escondido", true);
+  perrosDislikeContainer.classList.toggle("escondido", true);
+  totalLikes = 0;
+  totalDislikes = 0;
+  contadorLikesElement.textContent = `👍🏻 ${totalLikes}`;
+  contadorDislikesElement.textContent = `👎🏻 ${totalDislikes}`;
 }
 
 //Ejecución
