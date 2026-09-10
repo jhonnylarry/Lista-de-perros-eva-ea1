@@ -8,7 +8,12 @@ const perrosDislikeContainer = document.getElementById(
 perrosLikeContainer.classList.toggle("escondido");
 perrosDislikeContainer.classList.toggle("escondido");
 
+const contadorLikesElement = document.getElementById("contadorLikes");
+const contadorDislikesElement = document.getElementById("contadorDislikes");
+
 let perroActual;
+let totalLikes = 0;
+let totalDislikes = 0;
 
 document.getElementById("like").addEventListener("click", () => {
   rankearPerro("+");
@@ -18,6 +23,7 @@ document.getElementById("dislike").addEventListener("click", () => {
 });
 document.getElementById("saltear").addEventListener("click", nuevoPerro);
 document.getElementById("reintentar").addEventListener("click", nuevoPerro);
+document.getElementById("reiniciar").addEventListener("click", reiniciarHistorial);
 perroActualElement.addEventListener("load", () => {
   spinner.classList.toggle("escondido", true);
   perroActualElement.classList.toggle("escondido", false);
@@ -29,9 +35,13 @@ function rankearPerro(ranking) {
   if (ranking === "+") {
     perrosLikeContainer.appendChild(nuevaImagen);
     perrosLikeContainer.classList.toggle("escondido",false)
+    totalLikes++;
+    contadorLikesElement.textContent = `👍🏻 ${totalLikes}`;
   } else {
     perrosDislikeContainer.appendChild(nuevaImagen);
     perrosDislikeContainer.classList.toggle("escondido",false)
+    totalDislikes++;
+    contadorDislikesElement.textContent = `👎🏻 ${totalDislikes}`;
   }
   nuevoPerro();
 }
@@ -52,6 +62,17 @@ async function nuevoPerro() {
     spinner.classList.toggle("escondido", true);
     errorMensaje.classList.toggle("escondido", false);
   }
+}
+
+function reiniciarHistorial() {
+  perrosLikeContainer.innerHTML = "";
+  perrosDislikeContainer.innerHTML = "";
+  perrosLikeContainer.classList.toggle("escondido", true);
+  perrosDislikeContainer.classList.toggle("escondido", true);
+  totalLikes = 0;
+  totalDislikes = 0;
+  contadorLikesElement.textContent = `👍🏻 ${totalLikes}`;
+  contadorDislikesElement.textContent = `👎🏻 ${totalDislikes}`;
 }
 
 //Ejecución
